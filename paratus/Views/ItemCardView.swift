@@ -77,5 +77,5 @@ func calcWidth(maxWidth: Double, percComplete: Int) -> CGFloat {
 }
 
 #Preview {
-    ItemCardView(item: Item(label: "Test", timestamp: .now, percentageComplete: 0)).modelContainer(for: Item.self, inMemory: true)
+    ItemCardView(item: Item(label: "Test", timestamp: .now, percentageComplete: 0, color: "#fff")).modelContainer(for: Item.self, inMemory: true)
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		291F2DB72ADB3CB20001C651 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291F2DB62ADB3B9A0001C651 /* Color.swift */; };
 		29E9E7442ADAF106003742D3 /* paratusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E9E7432ADAF106003742D3 /* paratusApp.swift */; };
 		29E9E7462ADAF106003742D3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E9E7452ADAF106003742D3 /* ContentView.swift */; };
 		29E9E7482ADAF106003742D3 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E9E7472ADAF106003742D3 /* Item.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		291F2DB62ADB3B9A0001C651 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		29E9E7402ADAF106003742D3 /* paratus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = paratus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29E9E7432ADAF106003742D3 /* paratusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paratusApp.swift; sourceTree = "<group>"; };
 		29E9E7452ADAF106003742D3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -39,6 +41,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		291F2DB82ADB3D1E0001C651 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				29E9E7472ADAF106003742D3 /* Item.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		291F2DB92ADB3D250001C651 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				291F2DB62ADB3B9A0001C651 /* Color.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		29E9E7372ADAF106003742D3 = {
 			isa = PBXGroup;
 			children = (
@@ -59,10 +77,11 @@
 		29E9E7422ADAF106003742D3 /* paratus */ = {
 			isa = PBXGroup;
 			children = (
+				291F2DB92ADB3D250001C651 /* Extensions */,
+				291F2DB82ADB3D1E0001C651 /* Models */,
 				29EB11F42ADAFC080020C83C /* Views */,
 				29E9E7432ADAF106003742D3 /* paratusApp.swift */,
 				29E9E7452ADAF106003742D3 /* ContentView.swift */,
-				29E9E7472ADAF106003742D3 /* Item.swift */,
 				29E9E7492ADAF107003742D3 /* Assets.xcassets */,
 				29E9E74B2ADAF107003742D3 /* Preview Content */,
 			);
@@ -161,6 +180,7 @@
 				29E9E7442ADAF106003742D3 /* paratusApp.swift in Sources */,
 				29EB11FA2ADB322A0020C83C /* ItemCardView.swift in Sources */,
 				29EB11F62ADAFC1F0020C83C /* AddItemView.swift in Sources */,
+				291F2DB72ADB3CB20001C651 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
