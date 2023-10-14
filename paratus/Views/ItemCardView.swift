@@ -23,7 +23,7 @@ struct ItemCardView: View {
                             RoundedRectangle(cornerRadius: 5)
                                 .fill(.blue)
                                 .onAppear {
-                                    withAnimation(.linear(duration: 0.6)) {
+                                    withAnimation(.easeInOut(duration: 0.6)) {
                                         width = item.percentageComplete
                                     }
                                 }
