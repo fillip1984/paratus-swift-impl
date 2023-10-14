@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
+
     @Query private var items: [Item]
 
     @State var showAddSheet = false
@@ -22,6 +23,9 @@ struct ContentView: View {
             List(items) {
                 item in
                 ItemCardView(item: item)
+                    .onTapGesture {
+                        itemToEdit = item
+                    }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -35,10 +39,9 @@ struct ContentView: View {
         }.sheet(isPresented: $showAddSheet) {
             AddItemView()
         }
-        // TODO: decide if we edit in navigation stack or sheet
-        // .sheet(item: $itemToEdit) {
-        //            itemToEdit = nil
-        //        } content: { item in AddItemView(item: item) }
+        .sheet(item: $itemToEdit) {
+            itemToEdit = nil
+        } content: { item in AddItemView(item: item) }
     }
 }
 

@@ -10,38 +10,32 @@ import SwiftUI
 struct ItemCardView: View {
     @Environment(\.modelContext) private var modelContext
 
-    let item: Item
+    @Bindable var item: Item
     @State var width = 0
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
-            ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
-                RoundedRectangle(cornerRadius: 5)
-                    .fill(.blue)
-                    .opacity(0.5)
-                    .overlay(
-                        GeometryReader { geometry in
-                            RoundedRectangle(cornerRadius: 5)
-                                .fill(.blue)
-                                .onAppear {
-                                    withAnimation(.easeInOut(duration: 0.6)) {
-                                        width = item.percentageComplete
-                                    }
+            RoundedRectangle(cornerRadius: 5)
+                .fill(.blue)
+                .opacity(0.5)
+                .overlay(
+                    GeometryReader { geometry in
+                        RoundedRectangle(cornerRadius: 5)
+                            .fill(.blue)
+                            .onChange(of: item.percentageComplete) { withAnimation(.easeInOut(duration: 0.6)) {
+                                width = item.percentageComplete
+                            }}
+                            .onAppear {
+                                withAnimation(.easeInOut(duration: 0.6)) {
+                                    width = item.percentageComplete
                                 }
-                                .frame(width: calcWidth(maxWidth: geometry.size.width, percComplete: width))
-                        }
-                    )
-                Text(item.label)
-                    .font(.title)
-                    .foregroundColor(.white)
-                    .padding(EdgeInsets(top: 20, leading: 5, bottom: 20, trailing: 0))
-            }
-
-            // hides navigation arrow
-            NavigationLink(destination: AddItemView(item: item)) {
-                EmptyView()
-            }
-            .opacity(0.0)
-            .buttonStyle(PlainButtonStyle())
+                            }
+                            .frame(width: calcWidth(maxWidth: geometry.size.width, percComplete: width))
+                    }
+                )
+            Text(item.label)
+                .font(.title)
+                .foregroundColor(.white)
+                .padding(EdgeInsets(top: 20, leading: 5, bottom: 20, trailing: 0))
         }
         .listRowSeparator(.hidden)
         .listRowBackground(

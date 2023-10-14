@@ -24,6 +24,11 @@ struct AddItemView: View {
                 // Can't get this working, see: https://www.hackingwithswift.com/forums/swiftui/resolved-colors-and-swiftdata/22483
 //                ColorPicker("Color", selection: $item.color)
             }.toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Back") {
+                        dismiss()
+                    }
+                }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
                         withAnimation {
