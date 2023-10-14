@@ -3,3 +3,4 @@
  
  ## Resources
  
+ * [Format on save](https://github.com/nicklockwood/SwiftFormat)

@@ -5,8 +5,8 @@
 //  Created by Phillip Williams on 10/14/23.
 //
 
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 @main
 struct paratusApp: App {
