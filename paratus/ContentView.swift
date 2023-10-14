@@ -17,8 +17,46 @@ struct ContentView: View {
 
     var body: some View {
         NavigationStack {
-            List(items) { item in
-                ItemCardView(item: item).swipeActions(allowsFullSwipe: false) {
+            List(items) {
+                item in
+                ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
+                    ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
+                        RoundedRectangle(cornerRadius: 5)
+                            .fill(.blue)
+                            .opacity(0.5)
+                        GeometryReader { geometry in
+                            RoundedRectangle(cornerRadius: 5)
+                                .fill(.blue)
+                                .frame(width: calcWidth(maxWidth: geometry.size.width, percComplete: item.percentageComplete))
+                        }
+                        Text(item.label)
+                            .font(.title)
+                            .foregroundColor(.white)
+                            .padding(EdgeInsets(top: 20, leading: 5, bottom: 20, trailing: 0))
+                    }
+
+                    // hides navigation arrow
+                    NavigationLink(destination: AddItemView(item: item)) {
+                        EmptyView()
+                    }
+                    .opacity(0.0)
+                    .buttonStyle(PlainButtonStyle())
+                }
+                .listRowSeparator(.hidden)
+                .listRowBackground(
+                    RoundedRectangle(cornerRadius: 5)
+                        .background(.clear)
+                        .foregroundColor(.clear)
+                        .padding(
+                            EdgeInsets(
+                                top: 2,
+                                leading: 0,
+                                bottom: 2,
+                                trailing: 0
+                            )
+                        )
+                )
+                .swipeActions(allowsFullSwipe: false) {
                     Button(role: .destructive) {
                         withAnimation {
                             modelContext.delete(item)
@@ -26,21 +64,8 @@ struct ContentView: View {
                     } label: {
                         Label("Delete", systemImage: "trash")
                     }
-
-                    Button {
-                        itemToEdit = item
-                    } label: {
-                        Label("Edit", systemImage: "pencil")
-                    }
-                    .tint(.blue)
                 }
             }
-            .listRowSeparator(.hidden)
-            .listRowBackground(
-                RoundedRectangle(cornerRadius: 5)
-                    .background(.clear)
-                    .foregroundColor(/*@START_MENU_TOKEN@*/ .blue/*@END_MENU_TOKEN@*/)
-            )
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
@@ -52,13 +77,21 @@ struct ContentView: View {
             }
         }.sheet(isPresented: $showAddSheet) {
             AddItemView()
-        }.sheet(item: $itemToEdit) {
-            itemToEdit = nil
-        } content: { item in AddItemView(item: item) }
+        }
+        // .sheet(item: $itemToEdit) {
+        //            itemToEdit = nil
+        //        } content: { item in AddItemView(item: item) }
     }
+}
+
+func calcWidth(maxWidth: Double, percComplete: Int) -> CGFloat {
+    print("Calcing width based on", percComplete, maxWidth)
+    let w = (Double(percComplete) / 100) * maxWidth
+    print("Width will be: ", w)
+    return w
 }
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: false)
+        .modelContainer(for: Item.self, inMemory: true)
 }

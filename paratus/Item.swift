@@ -12,9 +12,11 @@ import SwiftData
 final class Item {
     var label: String
     var timestamp: Date
+    var percentageComplete: Int = 0
 
-    init(label: String, timestamp: Date) {
+    init(label: String, timestamp: Date, percentageComplete: Int) {
         self.label = label
         self.timestamp = timestamp
+        self.percentageComplete = percentageComplete
     }
 }

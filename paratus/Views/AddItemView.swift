@@ -11,20 +11,14 @@ struct AddItemView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var context
 
-    @Bindable var item = Item(label: "", timestamp: .now)
+    @Bindable var item = Item(label: "", timestamp: .now, percentageComplete: 0)
 
     var body: some View {
         NavigationView {
             Form {
                 TextField("Label", text: $item.label)
+                TextField("Percent Complete", value: $item.percentageComplete, formatter: NumberFormatter())
             }.toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Back") {
-                        withAnimation {
-                            dismiss()
-                        }
-                    }
-                }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
                         withAnimation {
