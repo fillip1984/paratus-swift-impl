@@ -70,9 +70,7 @@ struct ItemCardView: View {
 }
 
 func calcWidth(maxWidth: Double, percComplete: Int) -> CGFloat {
-    print("Calcing width based on", percComplete, maxWidth)
     let w = (Double(percComplete) / 100) * maxWidth
-    print("Width will be: ", w)
     return w
 }
 
