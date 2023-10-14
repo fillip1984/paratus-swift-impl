@@ -15,6 +15,7 @@ struct ContentView: View {
 
     @State var showAddSheet = false
     @State var itemToEdit: Item?
+    @State var itemBeingEdited = false
 
     var widths = 0
 
@@ -22,9 +23,10 @@ struct ContentView: View {
         NavigationStack {
             List(items) {
                 item in
-                ItemCardView(item: item)
+                ItemCardView(item: item, editing: itemBeingEdited)
                     .onTapGesture {
                         itemToEdit = item
+                        itemBeingEdited = true
                     }
             }
             .toolbar {
@@ -41,6 +43,7 @@ struct ContentView: View {
         }
         .sheet(item: $itemToEdit) {
             itemToEdit = nil
+            itemBeingEdited = false
         } content: { item in AddItemView(item: item) }
     }
 }

@@ -10,7 +10,9 @@ import SwiftUI
 struct ItemCardView: View {
     @Environment(\.modelContext) private var modelContext
 
-    @Bindable var item: Item
+    var item: Item
+    var editing: Bool
+
     @State var width = 0
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
@@ -21,9 +23,20 @@ struct ItemCardView: View {
                     GeometryReader { geometry in
                         RoundedRectangle(cornerRadius: 5)
                             .fill(.blue)
-                            .onChange(of: item.percentageComplete) { withAnimation(.easeInOut(duration: 0.6)) {
-                                width = item.percentageComplete
-                            }}
+                            // TODO: this doesn't animate for some reason, even with a delay. Looks like it applies nearly as soon as the field is updated
+//                            .onChange(of: item.percentageComplete) {
+//                                withAnimation(.easeInOut(duration: 0.6)) {
+//                                    width = item.percentageComplete
+//                                }
+//                            }
+                            // this works
+                            .onChange(of: editing) {
+                                if editing == false {
+                                    withAnimation(.easeInOut(duration: 0.2)) {
+                                        width = item.percentageComplete
+                                    }
+                                }
+                            }
                             .onAppear {
                                 withAnimation(.easeInOut(duration: 0.6)) {
                                     width = item.percentageComplete
@@ -69,5 +82,5 @@ func calcWidth(maxWidth: Double, percComplete: Int) -> CGFloat {
 }
 
 #Preview {
-    ItemCardView(item: Item(label: "Test", timestamp: .now, percentageComplete: 0, color: "#fff")).modelContainer(for: Item.self, inMemory: true)
+    ItemCardView(item: Item(label: "Test", timestamp: .now, percentageComplete: 0, color: "#fff"), editing: false).modelContainer(for: Item.self, inMemory: true)
 }
