@@ -11,7 +11,7 @@ struct ItemDetailView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var context
 
-    @Bindable var item = Item()
+    @Bindable var item = Item(from: .now, to: .now)
     var formMode: FormMode
 
 //    @State private var bgColor = Color(hex: item.color)
@@ -32,6 +32,17 @@ struct ItemDetailView: View {
                         ForEach(FillType.allCases, id: \.self) { value in Text(value.rawValue).tag(value)
                         }
                     }
+
+//                    if isDaysDriven(fillType: item.fillType) {
+                    if item.fillType == .Days {
+                        DatePicker("From", selection: $item.from, displayedComponents: .date)
+                        TextField("Days", text: $item.days)
+                            .numbersOnly($item.days)
+                    }
+
+                    if item.fillType == .ToDate {
+                        DatePicker("To", selection: $item.to, displayedComponents: .date)
+                    }
                 }
             }.toolbar {
                 ToolbarItem(placement: .cancellationAction) {
@@ -46,7 +57,14 @@ struct ItemDetailView: View {
 //                            print("resolved ", resolved)
 //                            item.color = resolved.description
 
+                            if item.fillType == .Days {
+                                item.to = Calendar.current.date(byAdding: .day, value: Int(item.days) ?? 0, to: item.from) ?? .now
+                            }
+
                             if formMode == .Create {
+                                if item.fillType == .ToDate {
+                                    item.from = .now
+                                }
                                 context.insert(item)
                             }
                             dismiss()
@@ -57,6 +75,14 @@ struct ItemDetailView: View {
         }
     }
 }
+
+// private func isDaysDriven(fillType: FillType) -> Bool {
+//    return fillType == .Days
+// }
+//
+// private func isDateDriven(fillType: FillType) -> Bool {
+//    return fillType == .ToDate
+// }
 
 #Preview {
     ItemDetailView(formMode: .Create)

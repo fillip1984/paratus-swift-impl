@@ -11,23 +11,22 @@ import SwiftData
 @Model
 final class Item {
     var label: String
-//    var remainingPercent: Int
     var fillType: FillType
-    var from: Date?
-    var to: Date?
-    //    var color: String = "#fff"
+    var from: Date
+    var to: Date
+    var days: String
 
     init(label: String = "",
-//         remainingPercent: Int=0,
          fillType: FillType = .None,
-         from: Date? = nil,
-         to: Date? = nil)
+         from: Date,
+         to: Date,
+         days: String = "")
     {
         self.label = label
-//        self.remainingPercent = remainingPercent
         self.fillType = fillType
         self.from = from
         self.to = to
+        self.days = days
     }
 }
 

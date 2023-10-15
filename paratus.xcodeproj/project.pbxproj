@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		291F2DB72ADB3CB20001C651 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291F2DB62ADB3B9A0001C651 /* Color.swift */; };
 		291F2DBC2ADC2A470001C651 /* FormUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291F2DBB2ADC2A470001C651 /* FormUtils.swift */; };
+		29D19D362ADC56B6001C03C5 /* NumbersOnlyViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D19D352ADC56B6001C03C5 /* NumbersOnlyViewModifier.swift */; };
 		29E9E7442ADAF106003742D3 /* paratusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E9E7432ADAF106003742D3 /* paratusApp.swift */; };
 		29E9E7462ADAF106003742D3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E9E7452ADAF106003742D3 /* ContentView.swift */; };
 		29E9E7482ADAF106003742D3 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E9E7472ADAF106003742D3 /* Item.swift */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		291F2DB62ADB3B9A0001C651 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		291F2DBB2ADC2A470001C651 /* FormUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormUtils.swift; sourceTree = "<group>"; };
+		29D19D352ADC56B6001C03C5 /* NumbersOnlyViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersOnlyViewModifier.swift; sourceTree = "<group>"; };
 		29E9E7402ADAF106003742D3 /* paratus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = paratus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29E9E7432ADAF106003742D3 /* paratusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paratusApp.swift; sourceTree = "<group>"; };
 		29E9E7452ADAF106003742D3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				291F2DB62ADB3B9A0001C651 /* Color.swift */,
+				29D19D352ADC56B6001C03C5 /* NumbersOnlyViewModifier.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29D19D362ADC56B6001C03C5 /* NumbersOnlyViewModifier.swift in Sources */,
 				29E9E7462ADAF106003742D3 /* ContentView.swift in Sources */,
 				29E9E7482ADAF106003742D3 /* Item.swift in Sources */,
 				29E9E7442ADAF106003742D3 /* paratusApp.swift in Sources */,
