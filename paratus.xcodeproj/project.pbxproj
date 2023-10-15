@@ -8,17 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		291F2DB72ADB3CB20001C651 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291F2DB62ADB3B9A0001C651 /* Color.swift */; };
+		291F2DBC2ADC2A470001C651 /* FormUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291F2DBB2ADC2A470001C651 /* FormUtils.swift */; };
 		29E9E7442ADAF106003742D3 /* paratusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E9E7432ADAF106003742D3 /* paratusApp.swift */; };
 		29E9E7462ADAF106003742D3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E9E7452ADAF106003742D3 /* ContentView.swift */; };
 		29E9E7482ADAF106003742D3 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E9E7472ADAF106003742D3 /* Item.swift */; };
 		29E9E74A2ADAF107003742D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29E9E7492ADAF107003742D3 /* Assets.xcassets */; };
 		29E9E74D2ADAF107003742D3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29E9E74C2ADAF107003742D3 /* Preview Assets.xcassets */; };
-		29EB11F62ADAFC1F0020C83C /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EB11F52ADAFC1F0020C83C /* AddItemView.swift */; };
+		29EB11F62ADAFC1F0020C83C /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EB11F52ADAFC1F0020C83C /* ItemDetailView.swift */; };
 		29EB11FA2ADB322A0020C83C /* ItemCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EB11F92ADB322A0020C83C /* ItemCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		291F2DB62ADB3B9A0001C651 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		291F2DBB2ADC2A470001C651 /* FormUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormUtils.swift; sourceTree = "<group>"; };
 		29E9E7402ADAF106003742D3 /* paratus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = paratus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29E9E7432ADAF106003742D3 /* paratusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paratusApp.swift; sourceTree = "<group>"; };
 		29E9E7452ADAF106003742D3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -26,7 +28,7 @@
 		29E9E7492ADAF107003742D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29E9E74C2ADAF107003742D3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		29E9E7532ADAF150003742D3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		29EB11F52ADAFC1F0020C83C /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
+		29EB11F52ADAFC1F0020C83C /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
 		29EB11F92ADB322A0020C83C /* ItemCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,6 +59,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		291F2DBA2ADC2A380001C651 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				291F2DBB2ADC2A470001C651 /* FormUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		29E9E7372ADAF106003742D3 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +87,7 @@
 		29E9E7422ADAF106003742D3 /* paratus */ = {
 			isa = PBXGroup;
 			children = (
+				291F2DBA2ADC2A380001C651 /* Utils */,
 				291F2DB92ADB3D250001C651 /* Extensions */,
 				291F2DB82ADB3D1E0001C651 /* Models */,
 				29EB11F42ADAFC080020C83C /* Views */,
@@ -99,7 +110,7 @@
 		29EB11F42ADAFC080020C83C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				29EB11F52ADAFC1F0020C83C /* AddItemView.swift */,
+				29EB11F52ADAFC1F0020C83C /* ItemDetailView.swift */,
 				29EB11F92ADB322A0020C83C /* ItemCardView.swift */,
 			);
 			path = Views;
@@ -178,8 +189,9 @@
 				29E9E7462ADAF106003742D3 /* ContentView.swift in Sources */,
 				29E9E7482ADAF106003742D3 /* Item.swift in Sources */,
 				29E9E7442ADAF106003742D3 /* paratusApp.swift in Sources */,
+				291F2DBC2ADC2A470001C651 /* FormUtils.swift in Sources */,
 				29EB11FA2ADB322A0020C83C /* ItemCardView.swift in Sources */,
-				29EB11F62ADAFC1F0020C83C /* AddItemView.swift in Sources */,
+				29EB11F62ADAFC1F0020C83C /* ItemDetailView.swift in Sources */,
 				291F2DB72ADB3CB20001C651 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

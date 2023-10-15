@@ -30,18 +30,18 @@ struct ItemCardView: View {
 //                                }
 //                            }
                             // this works
-                            .onChange(of: editing) {
-                                if editing == false {
-                                    withAnimation(.easeInOut(duration: 0.2)) {
-                                        width = item.percentageComplete
-                                    }
-                                }
-                            }
-                            .onAppear {
-                                withAnimation(.easeInOut(duration: 0.6)) {
-                                    width = item.percentageComplete
-                                }
-                            }
+//                            .onChange(of: editing) {
+//                                if editing == false {
+//                                    withAnimation(.easeInOut(duration: 0.6)) {
+//                                        width = item.percentComplete
+//                                    }
+//                                }
+//                            }
+//                            .onAppear {
+//                                withAnimation(.easeInOut(duration: 0.6)) {
+//                                    width = item.percentComplete
+//                                }
+//                            }
                             .frame(width: calcWidth(maxWidth: geometry.size.width, percComplete: width))
                     }
                 )
@@ -82,5 +82,5 @@ func calcWidth(maxWidth: Double, percComplete: Int) -> CGFloat {
 }
 
 #Preview {
-    ItemCardView(item: Item(label: "Test", timestamp: .now, percentageComplete: 0, color: "#fff"), editing: false).modelContainer(for: Item.self, inMemory: true)
+    ItemCardView(item: Item(label: "Test"), editing: false).modelContainer(for: Item.self, inMemory: true)
 }

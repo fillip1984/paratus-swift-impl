@@ -11,14 +11,26 @@ import SwiftData
 @Model
 final class Item {
     var label: String
-    var timestamp: Date
-    var percentageComplete: Int = 0
-    var color: String = "#fff"
+//    var remainingPercent: Int
+    var fillType: FillType
+    var from: Date?
+    var to: Date?
+    //    var color: String = "#fff"
 
-    init(label: String, timestamp: Date, percentageComplete: Int, color: String) {
+    init(label: String = "",
+//         remainingPercent: Int=0,
+         fillType: FillType = .None,
+         from: Date? = nil,
+         to: Date? = nil)
+    {
         self.label = label
-        self.timestamp = timestamp
-        self.percentageComplete = percentageComplete
-        self.color = color
+//        self.remainingPercent = remainingPercent
+        self.fillType = fillType
+        self.from = from
+        self.to = to
     }
+}
+
+enum FillType: String, CaseIterable, Codable {
+    case None, Days, ToDate = "To Date"
 }

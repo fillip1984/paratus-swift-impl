@@ -39,16 +39,16 @@ struct ContentView: View {
                 }
             }
         }.sheet(isPresented: $showAddSheet) {
-            AddItemView()
+            ItemDetailView(formMode: .Create)
         }
         .sheet(item: $itemToEdit) {
             itemToEdit = nil
             itemBeingEdited = false
-        } content: { item in AddItemView(item: item) }
+        } content: { item in ItemDetailView(item: item, formMode: .Update) }
     }
 }
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: false)
+        .modelContainer(for: Item.self, inMemory: true)
 }
