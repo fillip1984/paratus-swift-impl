@@ -45,6 +45,13 @@ struct ContentView: View {
             itemToEdit = nil
             itemBeingEdited = false
         } content: { item in ItemDetailView(item: item, formMode: .Update) }
+        .overlay {
+            if items.isEmpty {
+                ContentUnavailableView {
+                    Label("No items being tracked", systemImage: "exclamationmark.circle")
+                }
+            }
+        }
     }
 }
 
